@@ -5,7 +5,7 @@ import 'package:oech_app001/widgets/s2_text_field_widget.dart';
 //import 'package:oech_app001/model/otp_verify.dart';
 import 'package:oech_app001/model/send_OTP.dart';
 //import 'package:oech_app001/main.dart';
-
+import 'package:oech_app001/model/supabase_servise.dart';
 
 class SignUpPage extends StatefulWidget {
   static const routeName = '/sign_up-page';
@@ -16,6 +16,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+ 
    
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -159,7 +160,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: ButtonWidget(
                           buttonName: 'Sign Up',
                           buttonColor: const Color.fromRGBO(167, 167, 167, 1),
-                          onTap: () {
+                          onPressed: () {
                             sendOTP(url, annonKey, _emailController.text);
                            // Navigator.pushNamed(context, '/home');
                           },

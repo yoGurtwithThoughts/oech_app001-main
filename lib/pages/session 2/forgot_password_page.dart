@@ -98,7 +98,7 @@ class _ForgotPasswoprdPageState extends State<ForgotPasswoprdPage> {
                     child: ButtonWidget(
                       buttonName: 'Send OTP',
                       buttonColor: const Color.fromRGBO(167, 167, 167, 1),
-                      onTap: () { Navigator.pushNamed(context, '/newpass');},
+                      onPressed: () { Navigator.pushNamed(context, '/newpass');},
                     ),
                   ),
                 ],

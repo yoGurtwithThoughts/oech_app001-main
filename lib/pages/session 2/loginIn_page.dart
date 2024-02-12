@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: ButtonWidget(
                       buttonName: 'Log in ',
                       buttonColor: const Color.fromRGBO(167, 167, 167, 1),
-                      onTap: () {
+                      onPressed: () {
                         Navigator.pushNamed(context, '/home');
                       },
                     ),
