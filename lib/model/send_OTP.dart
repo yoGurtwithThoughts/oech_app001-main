@@ -21,14 +21,14 @@ final supabase = Supabase.instance.client;
   return otp;
 }
 
-Future<void> sendOTP(String supabaseUrl, String supabaseKey, String email) async {
+Future<void> sendOTP(String url, String anonKey, String email) async {
   // Генерация OTP
   final otp = generateOTP(6); // Длина OTP - 6 цифр
 
   print('OTP для $email: $otp');
 
  
-  var url = '$supabaseUrl/rest/v1/rpc/send_otp';
+  var url1 = '$url/rest/v1/rpc/send_otp';
   var body = {
     'email': email,
     'otp': otp,
@@ -36,8 +36,8 @@ Future<void> sendOTP(String supabaseUrl, String supabaseKey, String email) async
   var response = await http.post(
     Uri.parse(url),
     headers: {
-      'apikey': supabaseKey,
-      'Authorization': 'Bearer $supabaseKey',
+      'apikey': anonKey,
+      'Authorization': 'Bearer $anonKey',
       'Content-Type': 'application/json',
     },
     body: json.encode(body),

@@ -5,7 +5,8 @@ import 'package:oech_app001/widgets/s2_text_field_widget.dart';
 //import 'package:oech_app001/model/otp_verify.dart';
 import 'package:oech_app001/model/send_OTP.dart';
 //import 'package:oech_app001/main.dart';
-import 'package:oech_app001/model/supabase_servise.dart';
+//import 'package:oech_app001/model/supabase_servise.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SignUpPage extends StatefulWidget {
   static const routeName = '/sign_up-page';
@@ -25,9 +26,20 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _namefullController=TextEditingController();
   bool checkedValue = false;
   
-  String get url => 'https://hyknbwhwrzrcjgefpvhv.supabase.co';
-  
-  String get annonKey => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5a25id2h3cnpyY2pnZWZwdmh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY2ODQ2NzMsImV4cCI6MjAyMjI2MDY3M30.u0RENNqmz4Ab5WmHnXHc8x-pbdlhN50fxgx6Bt-mAdE';
+  /// [userLogin] function that handles the login
+  Future<String?> userLogin({
+    required final String email,
+    required final String password,
+  }) async {
+    final AuthResponse res = await supabase.auth.signInWithPassword(
+      email: email,
+      password: password,
+    );
+ 
+
+    final user = res.user;
+    return user?.id;
+  }
   @override
   void initState() {
     super.initState();
@@ -161,8 +173,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           buttonName: 'Sign Up',
                           buttonColor: const Color.fromRGBO(167, 167, 167, 1),
                           onPressed: () {
-                            sendOTP(url, annonKey, _emailController.text);
-                           // Navigator.pushNamed(context, '/home');
+                           final email = _emailController.text;
+                final supabase = Supabase.instance.client;
+                supabase.auth.signInWithOtp(email: email);
+                            build(context);
+                            Navigator.pushNamed(context, '/home');
                           },
                         ),
                       ),
