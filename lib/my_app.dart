@@ -12,6 +12,7 @@ import 'package:oech_app001/pages/session%203/home_page.dart';
 import 'package:oech_app001/pages/session%203/profile_page.dart';
 import 'package:oech_app001/pages/session%203/send_a_package.dart';
 import 'package:oech_app001/pages/session%203/send_a_package_replase.dart';
+import 'package:oech_app001/pages/session%204/add_payment_method.dart';
 import 'package:oech_app001/pages/session%204/wallet_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+    
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
@@ -41,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/home':(context) =>  HomePage(),
         // 4 session
         '/wall':(context) =>  WalletPage(),
+        '/add_payment_method':(context) => AddMethod(),
 
       },
     );

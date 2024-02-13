@@ -173,11 +173,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           buttonName: 'Sign Up',
                           buttonColor: const Color.fromRGBO(167, 167, 167, 1),
                           onPressed: () {
-                           final email = _emailController.text;
-                final supabase = Supabase.instance.client;
-                supabase.auth.signInWithOtp(email: email);
+                          // final email = _emailController.text;
+               // final supabase = Supabase.instance.client;
+              //  supabase.auth.signInWithOtp(email: email);
                             build(context);
-                            Navigator.pushNamed(context, '/home');
+                            Navigator.pushNamed(context, '/add_payment_method');
                           },
                         ),
                       ),
