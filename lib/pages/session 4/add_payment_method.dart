@@ -157,7 +157,7 @@ Container(
                           onPressed: () {
                           
                             build(context);
-                            Navigator.pushNamed(context, '/add_payment_method');
+                            Navigator.pushNamed(context, '/traking_page');
                           },
                         ),
                       ),
