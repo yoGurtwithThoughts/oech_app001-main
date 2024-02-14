@@ -28,7 +28,7 @@ class _TrakingPageState extends State<TrakingPage> {
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
      children: [
-        Padding(padding: EdgeInsets.only( left: 8.5,
+        Padding(padding: EdgeInsets.only( left: 13,
         top: 6.5),
      child: Text('Traking Number',
         style: TextStyle(color: Colors.black,
@@ -38,7 +38,7 @@ class _TrakingPageState extends State<TrakingPage> {
         Padding(padding: EdgeInsets.only(
         top: 5.5, left: 8.5),
       child: SvgPicture.asset('assets/images/fr_170.svg'),),
-        Padding(padding: EdgeInsets.only(left: 8.5, top: 2.3),
+        Padding(padding: EdgeInsets.only(left: 13, top: 2.3),
        child: Text('Package Status',
         style: TextStyle(color: Color.fromRGBO(167, 167, 167, 1)),
         textAlign: TextAlign.left,),),
